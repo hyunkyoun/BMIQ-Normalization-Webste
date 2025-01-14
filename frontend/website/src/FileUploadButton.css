@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+}
+.chooseButton {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #FBF5DD;
+    color: #DDA853;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.uploadButton {
+    margin-top: 30px;
+    padding: 10px;
+    height: 50px;
+    width: 100px;
+    background-color: #A6CDC6;
+    border-color: #16404D;
+    color: #16404D;
+    border-radius: 8px;
+    cursor: pointer;
+}
