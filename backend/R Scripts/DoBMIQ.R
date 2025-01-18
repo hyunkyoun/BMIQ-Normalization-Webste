@@ -106,7 +106,6 @@ for (file in list_of_files) {
 # Confirmation message
 cat("Moved", length(list_of_files), "files to", results_directory, "\n")
 
-
 # ### select CpGs (remove CHs) - Wasn't able to do yet...
 # annoindex <- which(anno450k.m[,1] %in% rownames(bmiq.m))
 # annoindex <- annoindex[match(rownames(bmiq.m),anno450k.m[annoindex])]

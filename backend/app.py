@@ -1,13 +1,16 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import os 
 from script_connection import compute_results
+from rpy2.robjects.conversion import localconverter
+from rpy2.robjects import default_converter
 
 app = Flask(__name__)
 CORS(app)
 
-UPLOAD_FOLDER = './R Scripts/data/uploads'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+UPLOAD_FOLDER = './data'
+
+os.makedirs(os.path.join('./R Scripts', UPLOAD_FOLDER), exist_ok=True)
 
 ALLOWED_EXTENSIONS = {'xlsx'}
 
@@ -31,17 +34,30 @@ def upload_files():
         return jsonify({"message": "Invalid file type"}), 400
     
     try:
-        betaFile.save(os.path.join(UPLOAD_FOLDER, betaFile.filename))
-        probeFile.save(os.path.join(UPLOAD_FOLDER, probeFile.filename))
+        betaFile.save(os.path.join('./R Scripts', UPLOAD_FOLDER, betaFile.filename))
+        probeFile.save(os.path.join('./R Scripts', UPLOAD_FOLDER, probeFile.filename))
 
         beta_data_path = os.path.join(UPLOAD_FOLDER, betaFile.filename)
         probe_data_path = os.path.join(UPLOAD_FOLDER, probeFile.filename)
 
-        compute_results(probe_data_path, beta_data_path)
+        with localconverter(default_converter):
+            compute_results(probe_data_path, beta_data_path)
         
         return jsonify({"message": "Files uploaded successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}, 500)
+    
+@app.route('/api/download', methods=['GET'])
+def download_results():
+    try:
+        return send_file(
+            './R Scripts/results.zip',
+            mimetype='application/zip',
+            as_attachment=True,
+            download_name='results.zip'
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)
