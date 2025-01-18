@@ -3,12 +3,14 @@ import './App.css'
 import axios from 'axios';
 import FileUploadButton from './FileUploadButton';
 import Error404Page from './Error404Page';
+// import ProgressLabel from './ProgressLabel';
 
 function App() {
 
   const [isComplete, setIsComplete] = useState(false);
-  const [isConnected, setIsConnected] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isConnected, setIsConnected] = useState(true);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [progress, setProgress] = useState({ status: "Initializing...", progress: 0 });
 
   const handleFileUpload = (betaData, probeData) => {
     console.log("Beta File: ", betaData);
@@ -55,6 +57,22 @@ function App() {
     }
   };
 
+
+  // // code for progress bar
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     axios.get('/progress')
+  //       .then((response) => {
+  //         setProgress(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.error("Failed to fetch progress:", error);
+  //       });
+  //   }, 1000); // Poll every second
+
+  //   return () => clearInterval(interval);
+  // }, []);
+
   // future updates
   // check if server is connected. display 404 page if not
   // be able to remove probes from excel file
@@ -64,6 +82,7 @@ function App() {
     <div className="container">
       <h1 className="head">BMIQ Normalization Tool</h1>
       <FileUploadButton onUpload={handleFileUpload} />
+      {/* <ProgressLabel progress={progress} /> */}
       {isComplete && (
         <button onClick={handleDownload} className="downloadButton">
           Download Results

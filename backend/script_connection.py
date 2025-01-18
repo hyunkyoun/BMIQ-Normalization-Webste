@@ -47,14 +47,31 @@ def compress_results_folder(result_path, output_path):
         raise e
 
 def compute_results(probe_data_path, beta_data_path):
+    # global progress_state
+
     # Initialize the R converter at the start of the function
     with localconverter(default_converter):
         pandas2ri.activate()
         
         try:
+            # progress_state["status"] = "Setting up R environment"
+            # progress_state["progress"] = 10
             r_environment_setup(wd_path, lib_paths)
+
+            # progress_state["status"] = "Running DoBMIQ..."
+            # progress_state["progress"] = 50
             call_DoBMIQ(probe_data_path, beta_data_path)
+
+            # progress_state["status"] = "Compressing results..."
+            # progress_state["progress"] = 90
             compress_results_folder("./results", "./results")
+
+            # progress_state["status"] = "Completed!"
+            # progress_state["progress"] = 100
+        # except Exception as e:
+        #     progress_state["status"] = f"Error: {str(e)}"
+        #     progress_state["progress"] = -1
+        #     raise e
         finally:
             pandas2ri.deactivate()
 

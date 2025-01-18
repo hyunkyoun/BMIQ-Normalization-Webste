@@ -58,6 +58,11 @@ def download_results():
         )
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@app.route('/api/progress', methods=['GET'])
+def get_progress():
+    global progress_state
+    return jsonify(progress_state)
 
 if __name__ == '__main__':
     app.run(debug=True, threaded=True)
