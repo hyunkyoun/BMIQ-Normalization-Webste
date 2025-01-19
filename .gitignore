@@ -2,6 +2,8 @@ backend/R Scripts/results/
 backend/R Scripts/packages/
 backend/R Scripts/data/
 backend/.venv/
+venv
+backend/__pycache__/
 
 *.Rd
 *.pdf
