@@ -86,7 +86,7 @@ function App() {
           <div className="description-box">
             <div className="description-box-title">Description</div>
             A new model-based intra-array normalization strategy for 450k data, known as BMIQ (Beta MIxture Quantile dilation),
-            aims to adjust the beta values of type 2 design probes to match the statistical distribution characteristics of type 1 probes.
+            aims to adjust the beta values of type 2 design probes to match the statistical distribution characteristics of type 1 probes. A website has been developed to facilitate the use of BMIQ
             <br />
             <br />
             Teschendorff, A. E. , Marabita, F. , Lechner, M. , Bartlett, T. , Tegner, J. , & Gomez-Cabrero, D. , et al. 2013. “A beta-mixture quantile normalization method for correcting probe design bias in illumina infinium 450 k dna methylation data.” Bioinformatics, 29(2), 189-196.
@@ -106,12 +106,12 @@ function App() {
           <ol>
             <li>
               Upload the Beta file. It must have the list of probe sets with the corresponding beta values for each sample.
-              An example is shown to the right:
+              An example is shown on the bottom:
               <img src="/example/img1.JPG" alt="Beta file example" />
             </li>
             <li>
               Upload the Probe file. It must have the column "targetid" with the corresponding probe information.
-              The type of probe used should be stated in the probe information as the second to last number, as shown to the right:
+              The type of probe used should be stated in the probe information as the second to last number, as shown on the bottom:
               <img src="/example/img2.JPG" alt="Probe file example" />
             </li>
           </ol>
