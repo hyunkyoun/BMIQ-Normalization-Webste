@@ -4,9 +4,9 @@ from rpy2 import robjects
 from rpy2.robjects.conversion import localconverter
 from rpy2.robjects import pandas2ri, default_converter
 
-DoBMIQ_path = 'DoBMIQ.R'
-wd_path = './R Scripts'
-lib_paths = 'packages'
+DoBMIQ_path = './R Scripts/DoBMIQ.R'
+wd_path = './'
+lib_paths = './R Scripts/packages'
 
 def r_environment_setup(wd_path, lib_path):
     try:
@@ -74,7 +74,7 @@ def compute_results(probe_data_path, beta_data_path):
 
             # Step 3: Compress results folder
             print("Compressing results folder")
-            compress_results_folder("./results", "./results")
+            compress_results_folder("./R Scripts/results", "./R Scripts/results")
 
             print("compute_results completed successfully")
         pandas2ri.deactivate()

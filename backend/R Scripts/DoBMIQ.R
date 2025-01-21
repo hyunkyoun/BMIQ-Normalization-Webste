@@ -24,7 +24,7 @@ print(paste("Removed", sum(!complete_rows), "rows containing NA values"))
 print(paste("Final dimensions of data.m:", nrow(data.m), "rows by", ncol(data.m), "columns"))
 
 ### DoBMIQ.R
-source("./BMIQ_1.4.R")
+source("./R Scripts/BMIQ_1.4.R")
 
 print("Read Success.")
 
@@ -91,7 +91,7 @@ for(s in 1:ncol(bmiq.m)){
 save(bmiq.m,file="bmiq.Rd");
 
 source_directory <- "./"
-results_directory <- "./results/"
+results_directory <- "./R Scripts/results/"
 
 file_types <- "\\.pdf$|\\.Rd$"
 list_of_files <- list.files(source_directory, pattern=file_types, full.names=TRUE)
