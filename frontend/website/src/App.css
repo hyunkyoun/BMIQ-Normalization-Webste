@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
     border: 2px solid #A6CDC6;
     border-radius: 10px;
@@ -38,7 +38,7 @@
     width: 100%;
     max-width: 800px;
     position: relative;
-    text-align: center;
+    text-align: left;
 }
 
 .content-box-title {
@@ -55,7 +55,7 @@
 }
 
 .content-box input, .content-box button {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .description-box {

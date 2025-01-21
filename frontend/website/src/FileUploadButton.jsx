@@ -47,11 +47,11 @@ function FileUploadButton({ onUpload }) {
     return (
         <div>
             <form className='container'>
-                <div>
+                <div className="file-input-container">
                     <label>Beta File: </label>
                     <input type="file" className="chooseButton" onChange={handleBetaFile} />
                 </div>
-                <div>
+                <div className="file-input-container">
                     <label>Probe File: </label>
                     <input type="file" className="chooseButton" onChange={handleProbeFile} />
                 </div>
