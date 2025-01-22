@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 20px;
     border: 2px solid #A6CDC6;
     border-radius: 10px;
@@ -134,16 +134,24 @@
 }
 
 .downloadButton {
-    margin-top: 30px;
     padding: 10px;
-    height: 50px;
+    height: 60px;
     width: 100px;
+    margin-top: 10px;
     background-color: #A6CDC6;
     border-color: #16404D;
     color: #16404D;
+    font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
+
+.downloadButton:active {
+    background-color: #D3D3D3;
+    color: #888888;
+}
+
 
 .uploadButton {
     padding: 10px;
