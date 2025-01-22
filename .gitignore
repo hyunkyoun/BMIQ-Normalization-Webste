@@ -10,3 +10,4 @@ backend/__pycache__/
 *.xlsx
 
 .DS_Store
+backend/R Scripts/results.zip
