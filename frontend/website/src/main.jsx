@@ -6,7 +6,7 @@ import Authors from './Authors.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    <Authors />
+    <App />
+    {/* <Authors /> */}
   </StrictMode>,
 )

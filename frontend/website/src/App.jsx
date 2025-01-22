@@ -9,7 +9,7 @@ function App() {
 
   const [isComplete, setIsComplete] = useState(false);
   // const [isConnected, setIsConnected] = useState(true);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   // const [progress, setProgress] = useState({ status: "Initializing...", progress: 0 });
 
   const handleFileUpload = (betaData, probeData) => {
@@ -20,6 +20,8 @@ function App() {
     formData.append("betaFile", betaData);
     formData.append("probeFile", probeData);
 
+    setIsLoading(true);
+
     axios.post("http://127.0.0.1:5000/api/upload", formData, {
       headers: {
         "Content-Type": "multipart/form-data"
@@ -27,12 +29,14 @@ function App() {
     })
       .then((response) => {
         console.log("Upload successful: ", response.data);
+        setIsLoading(false);
         alert("Files uploaded successfully.");
         setIsComplete(true);
       })
       .catch((error) => {
         console.error("Upload failed: ", error);
         alert("Failed to upload files.");
+        setIsLoading(false);
       });
   }
 
@@ -94,6 +98,7 @@ function App() {
           <div className="content-box">
             <div className="content-box-title">Data Submission Form</div>
             <FileUploadButton onUpload={handleFileUpload} />
+            {isLoading && <div className="loading-label">Loading...</div>}
             {isComplete && (
               <button onClick={handleDownload} className="downloadButton">
                 Download Results
