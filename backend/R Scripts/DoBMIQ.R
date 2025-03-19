@@ -1,4 +1,5 @@
 library(readxl)
+library(openxlsx)
 
 DoBMIQ <- function(probes_path, beta_path) {
 
@@ -89,6 +90,8 @@ for(s in 1:ncol(bmiq.m)){
 
 
 save(bmiq.m,file="bmiq.Rd");
+bmiqdf <- as.data.frame(bmiq.m)
+write.xlsx(bmiqdf, "bmiq.xlsx")
 
 source_directory <- "./"
 results_directory <- "./R Scripts/results/"
