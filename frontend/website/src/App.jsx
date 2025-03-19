@@ -4,6 +4,7 @@ import axios from 'axios';
 import FileUploadButton from './FileUploadButton';
 import Error404Page from './Error404Page';
 // import ProgressLabel from './ProgressLabel';
+import FileUploader from './FileUploader'
 
 function App() {
 
@@ -97,7 +98,8 @@ function App() {
           </div>
           <div className="content-box">
             <div className="content-box-title">Data Submission Form</div>
-            <FileUploadButton onUpload={handleFileUpload} />
+            {/* <FileUploadButton onUpload={handleFileUpload} /> */}
+            <FileUploader onUpload={handleFileUpload} />
             {isLoading && <div className="loading-label">Loading...</div>}
             {isComplete && (
               <button onClick={handleDownload} className="downloadButton">
