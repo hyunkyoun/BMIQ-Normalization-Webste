@@ -11,3 +11,6 @@ backend/__pycache__/
 
 .DS_Store
 backend/R Scripts/results.zip
+
+.RData
+.Rhistory
