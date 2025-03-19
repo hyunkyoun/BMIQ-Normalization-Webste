@@ -3,3 +3,5 @@ flask-cors
 rpy2
 numpy
 pandas
+readxl
+openxlxs
