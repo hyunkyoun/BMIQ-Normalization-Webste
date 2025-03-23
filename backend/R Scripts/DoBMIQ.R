@@ -7,7 +7,8 @@ probes <- read_excel(probes_path)
 beta_data <- read_excel(beta_path)
 
 # Creating data matrix
-probe_ids <- sub("_.*", "", beta_data$`probe set`)
+# probe_ids <- sub("_.*", "", beta_data$`probe set`)
+probe_ids <- sub(".*_", "", beta_data$`probe set`)
 data.m <- as.matrix(beta_data[, -1])
 sample_id <- colnames(beta_data)[-1]
 rownames(data.m) <- probe_ids

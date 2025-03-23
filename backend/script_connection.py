@@ -83,10 +83,12 @@ def compute_results(probe_data_path, beta_data_path):
         print(f"Error in compute_results: {e}")
         raise
 
-# probe_data_path = './R Scripts/data/probesample.xlsx'
-# beta_data_path = './R Scripts/data/beta.xlsx'
+probe_data_path = './R Scripts/data/probesample.xlsx'
+beta_data_path = './R Scripts/data/beta.xlsx'
+# beta_data_path = './R Scripts/data/beta(working).xlsx'
 
-probe_data_path = '../uploads/probesample.xlsx'
-beta_data_path = '../uploads/beta.xlsx'
 
-# compute_results(probe_data_path, beta_data_path)
+# probe_data_path = '../uploads/probesample.xlsx'
+# beta_data_path = '../uploads/beta.xlsx'
+
+compute_results(probe_data_path, beta_data_path)
