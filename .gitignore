@@ -14,3 +14,7 @@ backend/R Scripts/results.zip
 
 .RData
 .Rhistory
+
+PCA-analysis/filtered_beta_outputs/
+PCA-analysis/filtered_beta_outputs.zip
+PCA-analysis/info/
