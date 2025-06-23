@@ -35,7 +35,7 @@ def call_DoBMIQ(probe_path, beta_path):
 
         robjects.r(f'source("{DoBMIQ_path}")')
         print("DoBMIQ script sourced successfully")
-        print(f"Working directory in R: {robjects.r("getwd()")}")
+        print(f"Working directory in R: {robjects.r('getwd()')}")
 
         DoBMIQ = robjects.globalenv['DoBMIQ']
         DoBMIQ(probe_path, beta_path)
